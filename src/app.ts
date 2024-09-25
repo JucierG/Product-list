@@ -1,20 +1,19 @@
-import { Product } from './entities/product';
-import data from "../data.json" // data é variável. Não utiliza a chave porque aqui é um dado bruto
+// importar data.json
+// importar entities/product.ts
+// Criar os objetos de produto utilizando os
+// dados de data.json
+
+import { Product } from "./entities/product";
+import data from "../data.json";
 import { Cart } from "./entities/cart";
 
+const product1 = new Product("Banana", "Fruta", 10, "http://example.com");
+product1.incrementQuantity();
+product1.incrementQuantity();
+product1.incrementQuantity();
 
-const product1 = new Product('banana', 'fruta', 10, "www.example.com")
-const cart = new Cart()
-cart.addToCart(product1)
-console.log(cart)
+const product2 = new Product("Maçã", "Fruta", 5, "http://example.com");
+product2.incrementQuantity();
+product2.incrementQuantity();
 
-
-for (let i = 0; i < data.length; i++){
-    const produto = new Product(
-        data[i].name, 
-        data[i].category, 
-        data[i].price, 
-        data[i].image.desktop
-    );
-    produto.renderProducts()
-}
+console.log(Cart);
