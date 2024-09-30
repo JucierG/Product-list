@@ -17,3 +17,7 @@ product2.incrementQuantity();
 product2.incrementQuantity();
 
 console.log(Cart);
+
+Cart.removeProduct(product2)
+
+console.log(Cart);
