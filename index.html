@@ -13,16 +13,19 @@
 </head>
 
 <body>
-  <main class="p-20">
-    <ul id="product-list" class="grid grid-cols-3 ">
+  <main class="p-20 flex justify-between">
+    <!-- componente `Product List` -->
+    <ul id="product-list" class="grid grid-cols-3 gap-10">
+      <!-- componente `Product` -->
       <!-- <li>
         <div class="rounded-xl overflow-hidden flex flex-col border border-black h-[270px] w-[250px]">
           <div class="mb-10 relative h-full bg-red-500">
             <div class="">img</div>
-            <button type="button" class="button rounded-lg text-white font-medium text-xs bg-red-400">Add to Cart</button>
+            <button type="button" class="button rounded-lg text-white font-medium text-xs bg-red-400">Add to
+              Cart</button>
           </div>
 
-           <div class="flex flex-col">
+          <div class="flex flex-col">
             <span class="product-category">Fruta</span>
             <span class="product-name text-xl font-medium">Banana</span>
             <span class="product-price">$6.50</span>
@@ -30,7 +33,15 @@
         </div>
       </li> -->
     </ul>
+
+    <!-- componente `Cart` -->
+    <div id="cart-container" class="flex flex-col h-fit border border-black p-12">
+      <h2>Your Cart (<span id="total-quantity-text">0</span>)</h2>
+    </div>
+
   </main>
+
+  <script type="module" src="./src/app.ts"></script>
 
 </body>
 

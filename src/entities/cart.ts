@@ -15,16 +15,11 @@ export class Cart {
     }
   }
 
-  static removeProduct(product: Product){
+  static removeProduct(product: Product) {
+    // Remove um produto do carrinho, filtrando pelo produto em questão
     this._products = this._products.filter((item) => item.id !== product.id);
     this.calculateTotal();
-
-    // const produtosFiltrados: Product[] = []
-    // for(const item of this._products) {
-    //   if(item.id == product.id) continue;
-    //   produtosFiltrados.push(product);
-    // }
-  };
+  }
 
   static addToCart(product: Product) {
     const productInCart = this._products.includes(product);
@@ -34,6 +29,43 @@ export class Cart {
     }
 
     this.calculateTotal();
+    this.toHTML();
+    console.log(Cart._products);
+  }
+
+  static toHTML(){
+    const cartContainerHTML = document.getElementById("cart-container");
+    if(!cartContainerHTML) return;
+
+    // cartContainerHTML.innerHTML = this._totalQuantity.toString();
+    const totalQuantityHTML = cartContainerHTML.querySelector("#total-quantity-text")
+
+    if (!totalQuantityHTML) return;
+    totalQuantityHTML.textContent = this._totalQuantity.toString();
+
+    let ulProductsHTML = cartContainerHTML.querySelector("ul");
+    if(ulProductsHTML){
+      ulProductsHTML.innerHTML= "";
+    } else{
+      ulProductsHTML = document.createElement("ul");
+    }
+
+    for (const product of this._products) {
+      const liProductHTML = document.createElement("li");
+      const productHTML = `
+        <span>${product.name}</span>
+        <div>
+        <span>${product.quantity}x</span>
+        <span>@$${product.price}</span>
+        <span>$${product.total}</span>
+        </div>
+      `;
+
+      liProductHTML.innerHTML = productHTML;
+      ulProductsHTML.appendChild(liProductHTML);
+      // cartContainerHTML.innerHTML += productHTML;
+    }
+    cartContainerHTML.appendChild(ulProductsHTML);
   }
 
   static get products() {
