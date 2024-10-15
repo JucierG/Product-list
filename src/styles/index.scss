@@ -2,35 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-// @use "_components";
-
 @font-face {
-  font-family: "Red Hat Text";
-  src: url("../../assets/fonts/RedHatText-VariableFont_wght.ttf")
-    format("truetype");
+    font-family: "Red Hat Text";
+    src: url(../..\assets\fonts\RedHatText-VariableFont_wght.ttf),
+    format("truetype")
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+$font-color-primary: hsl(14, 86%, 42%);
+$font-color-secondary: hsl(14, 65%, 9%);
+$font-color-tertiary: hsl(12, 20%, 44%);
+$background-color: hsl(13, 31%, 94%);
+$cart-background: hsl(20, 50%, 98%);
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
-.container {
-  width: 200px;
-  height: 250px;
-  background-color: grey;
-  position: relative;
+body{
+    font-family: "Red Hat Text", sans-serif;
+    color: $font-color-primary;
+    background-color: $background-color;
 }
 
-.button {
-  padding: 15px 20px;
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translate(-50%, 50%);
+
+.fa-cart-plus{
+    color: $font-color-primary;
 }
 
-body {
-  font-family: "Red Hat Text", sans-serif;
+
+.product-category, .unitary-value, #buttom-remove-from-cart{
+    color: $font-color-tertiary;
+    font-size: 14px;
+}
+
+#total-value{
+    font-size: 700;
+    color: $font-color-secondary;
+}
+
+.product-name, h1, #button-add-to-cart{
+    color: $font-color-secondary;
+    font-weight: 700;
+}
+
+.product-price{
+    font-weight: 600;
+}
+
+#your-cart{
+    background-color: $cart-background;
+}
+
+#delivery-information{
+    background-color: $background-color;
+    color: $font-color-secondary;
+}
+
+.button{
+    padding: 15px 20px;
+    border-radius: 50px;
+    transform: translate(-50%, 50%);
+    width: 170px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#product-selected{
+    color: $background-color;
 }
